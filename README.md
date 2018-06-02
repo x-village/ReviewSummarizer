@@ -1,5 +1,12 @@
 # Review Summerier
 
+## Setup Enviornment Variables
+
+```sh
+export ASANA_TOKEN='your asana token'
+export PROJECT_ID='your project id'
+```
+
 ## Usage
 
 ### Using pipenv
