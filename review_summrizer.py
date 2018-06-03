@@ -56,7 +56,8 @@ def update_review_status(task, review_counter):
             {'name': updated_name}
         )
         logging.info(f'{updated_name} is updated')
-    logging.info(f"No one reviews {task['name']}")
+    else:
+        logging.info(f"No one reviews {task['name']}")
 
 
 def format_review_counter(review_counter):
@@ -72,7 +73,8 @@ if __name__ == '__main__':
     take_course_tasks = filter(take_course_filter, tasks)
     audit_tasks = filter(audit_filter, tasks)
 
-    for task in audit_tasks:
+    all_tasks = list(take_course_tasks) + list(audit_tasks)
+    for task in all_tasks:
         try:
             review_counter = count_review_status(task)
             update_review_status(task, review_counter)
